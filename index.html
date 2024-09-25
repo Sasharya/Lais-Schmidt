@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laís Schmidt</title>
+    <link id="favicon" rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <header class="header">
+        <div class="tab" id="tab1" onclick="showHome()">Home</div>
+        <div class="tab" id="tab2" onclick="showProjects()">Projects</div>
+        <div class="tab" id="tab3" onclick="showStarchest()">Starchest</div>
+    </header>
+
+    <div class="controls">
+        <select id="switchLanguage">
+            <option value="en" data-flag="us">🇺🇸</option>
+    <option value="pt" data-flag="br">🇧🇷</option>
+        </select>
+        
+        <button id="dark-mode-toggle"><i class="fas fa-adjust"></i></button>
+        
+    </div>
+
+    <div class="container">
+        <div class="text-section" id="homeSection" style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+                <h1 id="greeting">Hello! I'm <span class="highlight" id="name">Laís Schmidt,</span></h1>
+                <h2 id="profession">a backend developer and CTO of Starchest.</h2>
+            </div>
+            <div class="illustration-section">
+                <img src="symbol3.png" alt="Developer Illustration">
+            </div>
+        </div>
+        
+        <div class="text-section" id="projectsSection" style="display: none; text-align: center;">
+            <h2 id="importantProjects">Important Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="logo.png" alt="LockDown Logo" class="project-logo">
+                    <div class="project-details">
+                        <div class="project-description">
+                            This project offers a solution for remote work, integrating Data Loss Prevention (DLP) and an efficient backup system.
+                        </div>
+                        <div class="project-features">
+                            <ul>
+                                <li>Password Security: Limitation on login attempts and passwords that change every two weeks.</li>
+                                <li>Time Tracking: Recording of hours worked by users.</li>
+                                <li>Data Protection: Use of SSL/TLS and digital signatures.</li>
+                                <li>Data Management: Full control over access and manipulation of user data.</li>                            
+                            </ul>                        
+                        </div>
+                        <div class="project-technologies">
+                            <strong>Technologies:</strong> Golang, Python, React/Angular, PostgreSQL, C++, Docker, AWS.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="logo2.png" alt="DataSage Logo" class="project-logo"/>
+                    <div class="project-details">
+                        <div class="project-description">
+                            DataSage is a project aimed at revitalizing the old SSW, transforming it into a more modern and functional platform.
+                        </div>
+                        <div class="project-features">
+                            <ul>
+                                <li>Updated Design: A cleaner and more intuitive interface.</li>
+                                <li>Project Management: A tool for monitoring project progress.</li>
+                                <li>Appointment Scheduler: A module for scheduling meetings.</li>
+                                <li>Inventory Control: Management of available and sold items.</li>
+                                <li>Technologies: MongoDB, Express.js, Node.js, React, Bootstrap.</li>
+                            </ul>
+                        </div>
+                        <div class="project-technologies">
+                            <strong>Technologies:</strong> MongoDB, Express.js, Node.js, React, Bootstrap.
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="project-card">
+                    <div class="project-details">
+                        <div class="title-project">
+                            <i class="fas fa-briefcase" style="margin-right: 12px;"></i> <!-- Business Icon -->
+                            <strong class="project-title">Business Management System</strong>
+                        </div>
+                        <div class="project-description">
+                            This project offers a comprehensive solution for business management, focusing on data analysis and various functionalities that meet the needs of companies:
+                        </div>                
+                        <div class="project-features">
+                            <ul>
+                                <li><strong>Data Management:</strong> Ability to read multiple types of documents.</li>
+                                <li><strong>Sales System:</strong> Various sales plan options for different needs.</li>
+                                <li><strong>Integrated Calendar:</strong> Scheduling meetings and order notifications.</li>
+                                <li><strong>Driver Tracking:</strong> Real-time location and tracking.</li>
+                                <li><strong>Inventory:</strong> Control of items for sale, sold items, and losses.</li>
+                                <li><strong>Finance:</strong> Monitoring of invoices and company expenses.</li>
+                                <li><strong>Invoice Generation:</strong> Simplified issuance of fiscal documents.</li>
+                                <li><strong>Talent Pool:</strong> Management of candidates and talents.</li>
+                                <li><strong>Time Tracking:</strong> Recording of employees' worked hours.</li>
+                            </ul>
+                        </div>
+                        <div class="project-technologies">
+                            <strong>Technologies:</strong> MongoDB, Express.js, Node.js, React, Bootstrap, and Redux, with an integrated notification API through Firebase.
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Close projects-grid div -->
+        </div> <!-- Close projectsSection div -->
+
+        <footer>
+            <a href="mailto:your-email@example.com" aria-label="Send an Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/5551981880811?text=Olá,%20gostaria%20de%20entrar%20em%20contato!" aria-label="Connect on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/laisschmidt/" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Sasharya" aria-label="Connect on GitHub"><i class="fab fa-github"></i></a>
+        </footer>
+    </div> <!-- Close container div -->
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

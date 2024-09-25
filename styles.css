@@ -1,0 +1,651 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#switchLanguage option[value="en"] {
+    background-image: url('https://flagcdn.com/us.svg');
+    background-size: cover;
+}
+
+#switchLanguage option[value="pt"] {
+    background-image: url('https://flagcdn.com/br.svg');
+    background-size: cover;
+}
+
+/* Flag style for the selected option */
+#switchLanguage[data-selected-flag="us"] {
+    background-image: url('https://flagcdn.com/us.svg');
+    background-size: cover;
+}
+
+#switchLanguage[data-selected-flag="br"] {
+    background-image: url('https://flagcdn.com/br.svg');
+    background-size: cover;
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Dark and Light Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
+
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2d2d2d;
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.tab {
+    color: #61dafb;
+    margin: 5px; /* Reduce margin for smaller screens */
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #444;
+}
+
+.tab.active {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Controls */
+.controls {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    display: flex;
+    flex-direction: column; /* Coloca os itens verticalmente */
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(51, 51, 51, 0.8); /* Fundo semi-transparente */
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.controls select, .controls button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0; /* Reduce margin for smaller screens */
+}
+
+.controls button {
+    background-color: #61dafb;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #569cd6;
+}
+
+#languageSwitcher {
+    font-size: 2px; /* Tamanho menor */
+    cursor: pointer;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(10px); /* Move para baixo no início */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animação suave */
+}
+
+#languageSwitcher:hover {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Volta à posição original */
+}
+
+#themeToggle {
+    background-color: #3498db; /* Primary button color */
+    color: #fff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+#themeToggle:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#themeToggle:focus {
+    outline: none; /* Remove focus outline */
+}
+
+/* Layout */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content */
+    background-color: none;
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    flex-grow: 1;
+    
+}
+
+/* Text Section */
+.text-section {
+    padding: 20px;
+    width: 100%; /* Make full width on mobile */
+    text-align: center; /* Center text on mobile */
+    background-color: none; /* Light background for the section */
+    padding: 40px 20px; /* Add padding */
+}
+
+.highlight {
+    color: #61dafb; /* Altere esta cor para a desejada */
+    font-weight: 700; /* Se desejar que o nome fique em negrito */
+    
+}
+
+.text-section h1 {
+    font-size: 2rem; /* Adjust font size for mobile */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.text-section h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Illustration */
+.illustration-section {
+    margin-top: 20px; /* Space above illustration */
+}
+
+.illustration-section img {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+}
+
+/* Projects Section */
+.projects-section {
+    margin: 20px;
+}
+
+.project-title {
+    font-size: 24px; /* Adjust this value for your desired size */
+    font-weight: bold; /* Ensure the title is bold */
+    margin-bottom: 10px; /* Space between the title and the description */
+    text-align: center; /* Center the text only for the title */
+}
+
+.title-project {
+    text-align: center; /* Center the text */
+}
+
+.title-project i {
+    font-size: 24px; /* Size of the icon, adjust as needed */
+    color: #000000; /* Change color of the icon as needed */
+    margin-right: 150px; /* Reduced space between icon and title */
+}
+
+
+
+.projects-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px; /* Space above the grid */
+    background-color: rgba(30, 30, 30, 0.8); /* Dark transparent background for the grid */
+    padding: 20px; /* Padding around the grid */
+    border-radius: 8px; /* Rounded corners for the grid */
+    justify-content: center; /* Center the cards */
+    flex-wrap: wrap; /* Allow wrapping */
+
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    padding: 20px; /* Inner padding */
+    border: 1px solid rgba(97, 218, 251, 0.5); /* Semi-transparent light blue border */
+    border-radius: 10px; /* Rounded corners */
+    background: linear-gradient(135deg, #4e4e4e, #0b0a0c); /* Gradient background for the card */
+    backdrop-filter: blur(15px); /* Increased blur for a more pronounced glass effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    align-items: center;
+    color: #ffffff; /* Text color for better contrast */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    width: 300px; /* Set card width */
+    text-align: center; /* Center text */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+
+
+.project {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content */
+    margin-bottom: 15px;
+    padding: 10px; /* Padding around each project block */
+    border: 1px solid #444; /* Border around project blocks */
+    border-radius: 8px; /* Rounded corners */
+    width: 100%; /* Full width for projects */
+}
+
+.project-logo {
+    max-width: 110%; /* Responsive logo size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.project-details {
+    text-align: left; /* Align text to left */
+    margin-top: 10px; /* Space above details */
+    color: white; /* White text for better contrast */
+
+}
+
+.project-description {
+    margin-bottom: 10px;
+    font-size: 16px; /* Font size for description */
+    color: white;
+}
+
+.project-features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: white;
+}
+.project-technologies {
+
+    color: white;
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 10px 0;
+    width: 100%; /* Ensures the footer takes the full width of the page */
+}
+
+footer a {
+    margin: 0 10px;
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+footer a:hover {
+    color: #569cd6;
+}
+
+
+.light-mode {
+    background-color: #ffffff; /* Light mode background */
+    color: #333; /* Light mode text color */
+}
+
+body.light-mode { 
+    background-color: #ffffff; /* Light mode background */
+    color: #333; /* Light mode text color */
+    font-family: 'Fira Code', monospace; /* Font from Google Fonts */
+}
+
+body.light-mode header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */}
+
+body.light-mode .tab {
+    color: #000000;
+    background-color: white;
+    margin: 5px; /* Reduce margin for smaller screens */
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+body.light-mode .tab:hover {
+    background-color: #e0e0e0; /* Slightly darker background on hover */
+}
+
+body.light-mode .tab.active {
+    background-color: #dcdcdc; /* Active tab color */
+    color: #222222; /* Slightly darker text for the active tab */
+}
+
+body.light-mode nav {
+    background-color: #ffffff; /* Nav background in light mode */
+    padding: 10px; /* Padding for nav */
+}
+
+body.light-mode nav a {
+    color: #3498db; /* Link color in nav */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Padding for links */
+    display: inline-block; /* Make links block elements */
+}
+
+body.light-mode nav a:hover {
+    background-color: #3498db; /* Background on hover */
+    color: #ffffff; /* Text color on hover */
+}
+
+body.light-mode main {
+    padding: 20px; /* Padding for main content */
+}
+
+body.light-mode footer {
+    background-color: #ffffff; /* Footer background in light mode */
+    text-align: center; /* Center align text */
+    padding: 10px; /* Padding for footer */
+}
+
+body.light-mode button {
+    background-color: white; /* Button background */
+    color: #ffffff; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for button */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+body.light-mode button:hover {
+    background-color: #2980b9; /* Darker background on hover */
+}
+
+body.light-mode input, 
+body.light-mode textarea {
+    background-color: #ffffff; /* Input background */
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for inputs */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Box sizing */
+}
+
+body.light-mode input:focus, 
+body.light-mode textarea:focus {
+    border-color: #3498db; /* Border color on focus */
+    outline: none; /* Remove outline */
+}
+
+body.light-mode .card {
+    background-color: #ffffff; /* Card background */
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding for card */
+    margin: 10px 0; /* Margin for card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+body.light-mode .alert {
+    background-color: #ffffff; /* Alert background */
+    color: #856404; /* Alert text color */
+    border: 1px solid #ffffff; /* Alert border */
+    padding: 15px; /* Padding for alert */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px; /* Margin for alert */
+}
+
+body.light-mode .text-section {
+    background-color: #ffffff; /* Light grey background for the section */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+body.light-mode .project-card {
+    background-color: #ffffff; /* White background for project cards */
+    border: 1px solid #dddddd; /* Light border for cards */
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left; /* Align text to the left */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+body.light-mode .project-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+body.light-mode .project-logo {
+    max-width: 100%; /* Responsive logo */
+    height: auto;
+    border-radius: 4px; /* Slight rounding of logo corners */
+}
+
+body.light-mode .project-details {
+    margin-top: 10px; /* Space between logo and details */
+    color: #000000;
+}
+
+body.light-mode .project-description {
+    font-size: 14px; /* Slightly larger font for description */
+    color: #000000; /* Dark grey for better readability */
+}
+
+body.light-mode .project-features ul {
+    padding-left: 20px; /* Indent the list */
+    list-style-type: disc; /* Use bullet points */
+    color: #000000;
+}
+
+body.light-mode .project-features li {
+    margin-bottom: 5px; /* Space between list items */
+}
+
+body.light-mode .project-technologies {
+    font-weight: bold; /* Highlight technologies */
+    margin-top: 10px; /* Space above technologies section */
+    color: #000000;
+}
+
+body.light-mode .projects-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px; /* Space above the grid */
+    background-color: rgba(255, 255, 255, 0.8); /* Dark transparent background for the grid */
+    padding: 20px; /* Padding around the grid */
+    border-radius: 8px; /* Rounded corners for the grid */
+    justify-content: center; /* Center the cards */
+    flex-wrap: wrap; /* Allow wrapping */
+
+}
+
+body.light-mode .project-card {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    padding: 20px; /* Inner padding */
+    border: 1px solid rgba(24, 58, 68, 0.5); /* Semi-transparent light blue border */
+    border-radius: 10px; /* Rounded corners */
+    background: linear-gradient(135deg, #b3d9f3, #3498db); /* Gradient background for the card */
+    backdrop-filter: blur(15px); /* Increased blur for a more pronounced glass effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    align-items: center;
+    color: #ffffff; /* Text color for better contrast */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+    width: 300px; /* Set card width */
+    text-align: center; /* Center text */
+}
+
+body.light-mode .project-description, 
+body.light-mode .project-details,
+body.light-mode .project-features {
+    color: #000000;
+}
+
+
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    body.light-mode nav {
+        display: flex;
+        flex-direction: column; /* Stack nav links vertically */
+    }
+    
+    body.light-mode nav a {
+        padding: 10px; /* Increase padding for mobile */
+    }
+}
+
+
+.connect-button {
+    background-color: #3498db; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Transition */
+}
+
+.connect-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .controls {
+        top: 100px; /* Reduz a distância do topo no mobile */
+        right: 5px; /* Reduz a distância da direita no mobile */
+        padding: 5px 8px; /* Reduz o espaçamento no mobile */
+        gap: 5px; /* Reduz o espaço entre os itens no mobile */
+    }
+
+    #languageSwitcher {
+        font-size: 2px; /* Tamanho menor no mobile */
+    }
+
+    .text-section h1 {
+        font-size: 1.8rem; /* Adjust font size for mobile */
+    }
+
+    .text-section h2 {
+        font-size: 1.2rem; /* Adjust font size for mobile */
+    }
+
+    .illustration-section {
+        margin-top: 20px;
+    }
+
+    .project {
+        width: 95%; /* Make projects take most of the width */
+    }
+
+
+    footer a {
+        font-size: 24px; /* Slightly smaller footer icons */
+    }
+}
+
+@media (max-width: 480px) {
+    .text-section h1 {
+        font-size: 1.5rem; /* Further adjust for very small screens */
+    }
+
+    .text-section h2 {
+        font-size: 1rem; /* Further adjust for very small screens */
+    }
+}
+
+/* Basic styling for the custom select */
+.custom-select {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.selected-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.selected-option img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Hide the dropdown initially */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown li img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Show dropdown when the select is active */
+.custom-select.active .dropdown {
+    display: block;
+}
+
+/* Change background color on hover */
+.dropdown li:hover {
+    background-color: #f1f1f1;
+}
